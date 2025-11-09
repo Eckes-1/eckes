@@ -77,7 +77,10 @@ const showSponsorsList = sponsorConfig.showSponsorsList !== false;
                             <img
                               src={url(method.qrCode)}
                               alt={`${method.name} ${i18n(I18nKey.scanToSponsor)}`}
-                              class="w-full h-full object-contain"
+                              class={`w-full h-full object-contain qr-code-styled ${
+                                method.name === '支付宝' ? 'qr-alipay' : 
+                                method.name === '微信' ? 'qr-wechat' : ''
+                              }`}
                               loading="lazy"
                             />
                           </div>
@@ -179,6 +182,59 @@ const showSponsorsList = sponsorConfig.showSponsorsList !== false;
   
   :global(:root.dark body.wallpaper-transparent .usage-info-box) {
     background-color: oklch(from var(--primary) l c h / 0.15) !important;
+  }
+
+  /* 二维码品牌色伪装效果 */
+  .qr-code-styled {
+    transition: filter 0.3s ease;
+  }
+
+  /* 支付宝品牌色 - 蓝色 */
+  .qr-alipay {
+    filter: 
+      grayscale(100%) 
+      brightness(1.2) 
+      sepia(100%) 
+      hue-rotate(180deg) 
+      saturate(5) 
+      contrast(1.1);
+  }
+
+  /* 微信品牌色 - 绿色 */
+  .qr-wechat {
+    filter: 
+      grayscale(100%) 
+      brightness(1.15) 
+      sepia(100%) 
+      hue-rotate(70deg) 
+      saturate(4) 
+      contrast(1.05);
+  }
+
+  /* 悬停效果 - 显示原始二维码 */
+  .qr-code-styled:hover {
+    filter: none;
+  }
+
+  /* 深色模式下的调整 */
+  :global(.dark) .qr-alipay {
+    filter: 
+      grayscale(100%) 
+      brightness(1.3) 
+      sepia(100%) 
+      hue-rotate(180deg) 
+      saturate(5.5) 
+      contrast(1.2);
+  }
+
+  :global(.dark) .qr-wechat {
+    filter: 
+      grayscale(100%) 
+      brightness(1.25) 
+      sepia(100%) 
+      hue-rotate(70deg) 
+      saturate(4.5) 
+      contrast(1.15);
   }
 </style>
 
