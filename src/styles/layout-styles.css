@@ -58,7 +58,7 @@
     /* 主内容区域位置调整 - 向上移动以部分遮挡banner */
     .absolute.w-full.z-30 {
         top: 65vh !important; /* 向上移动5vh，部分遮挡banner */
-        min-height: calc(100vh - 65vh) !important;
+        /* 移除固定的min-height，让内容自然流动 */
     }
     
     /* 横幅文本覆盖层优化 */
@@ -112,7 +112,7 @@
     /* 主内容区域位置调整 - 向上移动以部分遮挡banner */
     .absolute.w-full.z-30 {
         top: 70vh !important; /* 向上移动5vh，部分遮挡banner */
-        min-height: calc(100vh - 70vh) !important;
+        /* 移除固定的min-height，让内容自然流动 */
     }
     
     /* 横幅文本覆盖层优化 */
@@ -165,7 +165,7 @@
     /* 主内容区域位置调整 - 向上移动以部分遮挡banner */
     .absolute.w-full.z-30 {
         top: 65vh !important; /* 向上移动5vh，部分遮挡banner */
-        min-height: calc(100vh - 65vh) !important;
+        /* 移除固定的min-height，让内容自然流动 */
     }
     
     /* 横幅文本覆盖层优化 */
@@ -291,7 +291,7 @@
     
     .absolute.w-full.z-30.mobile-main-no-banner {
         top: 5.5rem !important;
-        min-height: calc(100vh - 5.5rem) !important;
+        /* 移除固定的min-height，让内容自然流动 */
         /* 内容区域快速上移 */
         transition: top 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s !important;
     }
@@ -377,14 +377,14 @@
 /* 当banner被禁用时的布局样式 */
 .no-banner-layout {
     top: 5.5rem !important;
-    min-height: calc(100vh - 5.5rem) !important;
+    /* 移除固定的min-height，让内容自然流动 */
 }
 
 /* 移动端当banner被禁用时的布局样式 */
 @media (max-width: 1023px) {
     .absolute.w-full.z-30.no-banner-layout {
         top: 5.5rem !important;
-        min-height: calc(100vh - 5.5rem) !important;
+        /* 移除固定的min-height，让内容自然流动 */
         transition: none !important; /* 移除过渡动画，立即应用位置 */
     }
 }
@@ -393,7 +393,7 @@
 @media (max-width: 480px) {
     .absolute.w-full.z-30.no-banner-layout {
         top: 5.5rem !important;
-        min-height: calc(100vh - 5.5rem) !important;
+        /* 移除固定的min-height，让内容自然流动 */
         transition: none !important;
     }
 }
@@ -402,7 +402,7 @@
 @media (min-width: 641px) and (max-width: 1023px) {
     .absolute.w-full.z-30.no-banner-layout {
         top: 5.5rem !important;
-        min-height: calc(100vh - 5.5rem) !important;
+        /* 移除固定的min-height，让内容自然流动 */
         transition: none !important;
     }
 }
@@ -417,7 +417,7 @@
     /* 主内容区域位置调整 - 确保在banner下面，但不影响非首页 */
     .absolute.w-full.z-30:not(.mobile-main-no-banner) {
         top: 60vh !important; /* 与banner高度对应 */
-        min-height: calc(100vh - 60vh) !important;
+        /* 移除固定的min-height，让内容自然流动 */
     }
     
     .banner-container {

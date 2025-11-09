@@ -1,27 +1,27 @@
 ---
-title: Firefly 一款清新美观的 Astro 博客主题模板
+title: Eckes 一款清新美观的 Astro 博客主题模板
 published: 2025-10-13
 pinned: true
-description: Firefly 是一款基于 Astro 框架开发的清新美观且现代化个人博客主题，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。
-tags: [Markdown, Firefly, 博客, 主题, 模板, 开源]
+description: Eckes 是一款基于 Astro 框架开发的清新美观且现代化个人博客主题，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。
+tags: [Markdown, Eckes, 博客, 主题, 模板, 开源]
 category: 文章示例
 draft: false
 ---
 
 ## 🌟 项目概述
 
-**Firefly** 是一款基于 Astro 框架开发的清新美观且现代化个人博客主题，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。
+**Eckes** 是一款基于 Astro 框架开发的清新美观且现代化个人博客主题，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。
 
 
 
 
-**🖥️在线预览： [Firefly - Demo site](https://firefly.cuteleaf.cn/)**
+**🖥️在线预览： [Eckes - Demo site](https://firefly.cuteleaf.cn/)**
 
 **🏠我的博客： [https://blog.cuteleaf.cn](https://blog.cuteleaf.cn/)**
 
-**📝Firefly使用文档： [https://docs-firefly.cuteleaf.cn](https://docs-firefly.cuteleaf.cn/)**
+**📝Eckes使用文档： [https://docs-firefly.cuteleaf.cn](https://docs-firefly.cuteleaf.cn/)**
 
-**⭐Firefly开源地址：https://github.com/CuteLeaf/Firefly** 
+**⭐Eckes开源地址：https://github.com/CuteLeaf/Firefly**
 
 ::github{repo="CuteLeaf/Firefly"}
 

@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>神秘礼物 💝</title>
+    <style>
+        :root {
+            --hue: 250;
+            --primary: oklch(0.70 0.14 var(--hue));
+            --page-bg: oklch(0.95 0.01 var(--hue));
+            --card-bg: white;
+            --deep-text: oklch(0.25 0.02 var(--hue));
+            --btn-regular-bg: oklch(0.95 0.025 var(--hue));
+            --btn-regular-bg-hover: oklch(0.9 0.05 var(--hue));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--page-bg);
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* 背景粒子效果 */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float-particle 15s infinite ease-in-out;
+        }
+
+        @keyframes float-particle {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-100px) translateX(50px);
+                opacity: 0.6;
+            }
+        }
+
+        /* 弹窗样式 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .modal-overlay.hidden {
+            animation: fadeOut 0.3s ease forwards;
+        }
+
+        .modal-box {
+            background: var(--card-bg);
+            padding: 0;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            max-width: 480px;
+            width: 90%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 顶部装饰区域 */
+        .modal-header {
+            background: linear-gradient(135deg,
+                oklch(0.75 0.15 calc(var(--hue) - 20)) 0%,
+                oklch(0.70 0.14 var(--hue)) 50%,
+                oklch(0.75 0.15 calc(var(--hue) + 20)) 100%
+            );
+            padding: 50px 40px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modal-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* 装饰圆圈 */
+        .decoration-circles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float-circle 8s infinite ease-in-out;
+        }
+
+        .circle:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .circle:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 60%;
+            left: 80%;
+            animation-delay: 2s;
+        }
+
+        .circle:nth-child(3) {
+            width: 40px;
+            height: 40px;
+            top: 80%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float-circle {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.1); }
+        }
+
+        .modal-icon {
+            font-size: 90px;
+            margin-bottom: 20px;
+            animation: gift-bounce 2s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+        }
+
+        @keyframes gift-bounce {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-15px) scale(1.05);
+            }
+        }
+
+        .modal-title {
+            font-size: 28px;
+            color: white;
+            margin-bottom: 10px;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-subtitle {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            z-index: 2;
+            font-weight: 400;
+        }
+
+        /* 内容区域 */
+        .modal-content {
+            padding: 40px;
+        }
+
+        .modal-description {
+            font-size: 15px;
+            color: var(--deep-text);
+            line-height: 1.8;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .modal-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 16px 50px;
+            font-size: 16px;
+            border-radius: 2rem;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 8px 20px oklch(0.70 0.14 var(--hue) / 0.3);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modal-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px oklch(0.70 0.14 var(--hue) / 0.4);
+        }
+
+        .modal-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .modal-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* 便签样式 */
+        .note {
+            position: absolute;
+            padding: 20px 28px;
+            border-radius: 1rem;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--deep-text);
+            background: var(--card-bg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            white-space: nowrap;
+            animation: floatUp 6s ease-out forwards;
+            transform-origin: center;
+            min-width: 160px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .note::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit;
+            border-radius: 1rem;
+            filter: blur(20px);
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .note-emoji {
+            font-size: 22px;
+            margin-right: 8px;
+            display: inline-block;
+            animation: emoji-bounce 1.5s infinite;
+        }
+
+        @keyframes emoji-bounce {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.15) rotate(-5deg); }
+        }
+
+        .note-text {
+            letter-spacing: 0.5px;
+            opacity: 0.9;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.3) rotate(-10deg);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(0.3);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(-10vh) rotate(3deg) scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-60vh) rotate(-2deg) scale(1.05);
+            }
+            100% {
+                transform: translateY(-120vh) rotate(-8deg) scale(0.7);
+                opacity: 0;
+            }
+        }
+
+        /* 心形粒子效果 */
+        .heart-particle {
+            position: absolute;
+            font-size: 20px;
+            pointer-events: none;
+            animation: heartFloat 3s ease-out forwards;
+            z-index: 9998;
+        }
+
+        @keyframes heartFloat {
+            0% {
+                transform: translateY(0) scale(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-50px) scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100px) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* 闪光效果 */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: sparkleAnim 1s ease-out forwards;
+            z-index: 9998;
+        }
+
+        @keyframes sparkleAnim {
+            0% {
+                transform: scale(0) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.5) rotate(180deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(0) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* 统一控制面板 */
+        .control-panel {
+            position: fixed;
+            top: 50%; /* 改为垂直居中定位 */
+            right: 20px;
+            transform: translateY(-50%); /* 垂直居中 */
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            z-index: 10000;
+            display: none;
+            border: none;
+            width: 60px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: visible;
+            max-height: 85vh; /* 限制面板最大高度为视口高度的85% */
+        }
+
+        .control-panel.show {
+            display: block;
+            animation: slideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .control-panel.expanded {
+            width: 280px;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(100px) scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* 面板头部 */
+        .panel-header {
+            background: linear-gradient(135deg,
+                oklch(0.75 0.15 calc(var(--hue) - 20)) 0%,
+                oklch(0.70 0.14 var(--hue)) 50%,
+                oklch(0.75 0.15 calc(var(--hue) + 20)) 100%
+            );
+            padding: 12px;
+            border-radius: 1rem;
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            user-select: none;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .panel-header:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .panel-header:active {
+            transform: scale(0.95);
+        }
+
+        /* 收起状态的图标动画 */
+        .control-panel:not(.expanded) .panel-header {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
+            50% {
+                box-shadow: 0 4px 20px rgba(var(--primary), 0.4);
+            }
+        }
+
+        /* 展开状态的面板头部 */
+        .control-panel.expanded .panel-header {
+            border-radius: 1rem 1rem 0 0;
+            animation: none;
+        }
+
+        .panel-header-text {
+            display: none;
+            font-size: 14px;
+            margin-left: 8px;
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .control-panel.expanded .panel-header {
+            justify-content: flex-start;
+            padding: 12px 15px;
+            font-size: 20px;
+            cursor: default;
+            gap: 0;
+        }
+
+        .control-panel.expanded .panel-header:hover {
+            transform: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .control-panel.expanded .panel-header:active {
+            transform: none;
+        }
+
+        .control-panel.expanded .panel-header > span:first-child {
+            cursor: default !important;
+            pointer-events: none;
+            margin-right: 0;
+        }
+
+        .control-panel.expanded .panel-header-text {
+            display: inline-block;
+            animation: fadeInRight 0.3s ease;
+            margin-left: 8px;
+            margin-right: auto;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* 最小化按钮 */
+        .minimize-btn {
+            display: none;
+            background: rgba(255, 255, 255, 0.25);
+            border: none;
+            color: white;
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1;
+            padding: 0;
+            flex-shrink: 0;
+            margin-left: auto;
+        }
+
+        .minimize-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.08);
+        }
+
+        .minimize-btn:active {
+            background: rgba(255, 255, 255, 0.5);
+            transform: scale(0.92);
+        }
+
+        .control-panel.expanded .minimize-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* 面板内容 */
+        .panel-content {
+            padding: 12px;
+            padding-bottom: 8px; /* 减小底部内边距 */
+            display: none;
+            overflow-y: auto; /* 添加滚动 */
+            max-height: calc(85vh - 60px); /* 限制内容区域高度，减去头部高度 */
+        }
+
+        .control-panel.expanded .panel-content {
+            display: block;
+        }
+
+        /* 面板内容滚动条样式 */
+        .panel-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .panel-content::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 3px;
+        }
+
+        .panel-content::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
+        }
+
+        .panel-content::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        /* 控制按钮组 */
+        .control-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .control-btn {
+            background: var(--btn-regular-bg);
+            color: var(--primary);
+            border: none;
+            padding: 10px 12px;
+            border-radius: 0.5rem;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .control-btn:hover {
+            background: var(--btn-regular-bg-hover);
+            transform: translateY(-2px);
+        }
+
+        .control-btn:active {
+            background: var(--btn-regular-bg-active);
+            transform: translateY(0);
+        }
+
+        /* 音量控制 */
+        .volume-control {
+            padding: 10px 12px;
+            background: var(--btn-regular-bg);
+            border-radius: 0.5rem;
+            margin-bottom: 8px;
+        }
+
+        .volume-label {
+            font-size: 12px;
+            color: var(--deep-text);
+            margin-bottom: 6px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .volume-slider {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: white;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .volume-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .volume-slider::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .volume-slider::-moz-range-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .volume-value {
+            font-size: 12px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* 设置按钮 */
+        .settings-toggle-btn {
+            background: var(--btn-regular-bg);
+            color: var(--primary);
+            border: none;
+            padding: 10px;
+            border-radius: 0.5rem;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            width: 100%;
+        }
+
+        .settings-toggle-btn:hover {
+            background: var(--btn-regular-bg-hover);
+            transform: translateY(-2px);
+        }
+
+        .settings-toggle-btn:active {
+            transform: translateY(0);
+        }
+
+        /* 设置区域（可展开/收起） */
+        .settings-area {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .settings-area.expanded {
+            max-height: 50vh; /* 使用视口高度的50%，确保内容完整显示 */
+            opacity: 1;
+            overflow-y: auto;
+        }
+
+        /* 设置区域滚动条样式 */
+        .settings-area::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .settings-area::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 3px;
+        }
+
+        .settings-area::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
+        }
+
+        .settings-area::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .settings-divider {
+            height: 1px;
+            background: rgba(0, 0, 0, 0.05);
+            margin: 10px 0;
+        }
+
+        .settings-content {
+            padding: 8px 12px; /* 减小上下内边距，从12px改为8px */
+            padding-top: 6px; /* 减小顶部内边距 */
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .setting-group {
+            margin-bottom: 10px; /* 减小组间距，从12px改为10px */
+        }
+
+        .setting-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--deep-text);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .setting-input {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            background: white;
+        }
+
+        .setting-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px oklch(0.70 0.14 var(--hue) / 0.1);
+        }
+
+        .setting-textarea {
+            min-height: 60px; /* 减小最小高度，从80px改为60px */
+            max-height: 120px; /* 减小最大高度，从200px改为120px */
+            resize: vertical;
+            box-sizing: border-box;
+        }
+
+        .setting-slider {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: white;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .setting-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .setting-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .setting-slider::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .setting-slider::-moz-range-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .slider-value {
+            font-size: 12px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .slider-container {
+            background: var(--btn-regular-bg);
+            padding: 8px 10px;
+            border-radius: 0.5rem;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .save-btn, .reset-btn {
+            padding: 10px;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .save-btn {
+            background: var(--primary);
+            color: white;
+        }
+
+        .save-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px oklch(0.70 0.14 var(--hue) / 0.3);
+        }
+
+        .reset-btn {
+            background: var(--btn-regular-bg);
+            color: var(--deep-text);
+        }
+
+        .reset-btn:hover {
+            background: var(--btn-regular-bg-hover);
+            transform: translateY(-2px);
+        }
+
+        .save-btn:active, .reset-btn:active {
+            transform: translateY(0);
+        }
+
+        .setting-hint {
+            font-size: 11px;
+            color: rgba(0, 0, 0, 0.5);
+            margin-top: 5px;
+        }
+
+        /* 提示信息样式 */
+        .info-tip {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 12px;
+            border-radius: 0.5rem;
+            font-size: 12px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            line-height: 1.5;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+            animation: tipFadeIn 0.5s ease;
+        }
+
+        @keyframes tipFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .info-tip-icon {
+            font-size: 16px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .param-tip {
+            background: rgba(255, 193, 7, 0.15);
+            border-left: 3px solid #ffc107;
+            color: #856404;
+            padding: 10px 12px;
+            border-radius: 0.3rem;
+            font-size: 11px;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .param-tip strong {
+            color: #ff9800;
+        }
+
+        /* 移动端优化 */
+        @media (max-width: 768px) {
+            .modal-box {
+                max-width: 90%;
+            }
+            .modal-header {
+                padding: 40px 30px 30px;
+            }
+            .modal-icon {
+                font-size: 70px;
+            }
+            .modal-title {
+                font-size: 24px;
+            }
+            .modal-subtitle {
+                font-size: 13px;
+            }
+            .modal-content {
+                padding: 30px 25px;
+            }
+            .modal-description {
+                font-size: 14px;
+                margin-bottom: 25px;
+            }
+            .modal-btn {
+                padding: 14px 40px;
+                font-size: 15px;
+            }
+            .note {
+                font-size: 14px;
+                padding: 18px 24px;
+                min-width: 140px;
+            }
+            .note-emoji {
+                font-size: 20px;
+            }
+            .control-panel {
+                top: auto !important; /* 移动端强制使用底部定位 */
+                bottom: 15px;
+                right: 15px;
+                width: 50px;
+                transform: none !important; /* 移除居中变换 */
+            }
+            .control-panel.expanded {
+                width: calc(100vw - 30px);
+                max-width: 320px;
+            }
+            .panel-header {
+                font-size: 20px;
+                padding: 10px;
+            }
+            .control-panel.expanded .panel-header {
+                font-size: 18px;
+            }
+            /* 移动端隐藏提示气泡 */
+            .control-panel::before,
+            .control-panel::after {
+                display: none;
+            }
+            .control-buttons {
+                grid-template-columns: 1fr;
+            }
+            .action-buttons {
+                grid-template-columns: 1fr;
+            }
+            .settings-area.expanded {
+                max-height: 45vh; /* 移动端使用视口高度的45% */
+            }
+            .setting-textarea {
+                min-height: 60px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 背景粒子 -->
+    <div class="particles" id="particles"></div>
+
+    <!-- 统一控制面板 -->
+    <div class="control-panel" id="controlPanel">
+        <!-- 面板头部 -->
+        <div class="panel-header" id="panelHeader">
+            <span onclick="togglePanel()" style="cursor: pointer;">⚙️</span>
+            <span class="panel-header-text">控制中心</span>
+            <button class="minimize-btn" onclick="minimizePanel(event)" aria-label="最小化" title="最小化">−</button>
+        </div>
+
+        <!-- 面板内容 -->
+        <div class="panel-content">
+            <!-- 音乐提示 -->
+            <div class="info-tip">
+                <span class="info-tip-icon">💡</span>
+                <span>音乐默认关闭，点击"音乐"按钮开启背景音乐</span>
+            </div>
+
+            <!-- 控制按钮组 -->
+            <div class="control-buttons">
+                <button class="control-btn" onclick="toggleNotes()">
+                    <span id="btnText">⏸️ 暂停</span>
+                </button>
+                <button class="control-btn" onclick="toggleMusic()">
+                    <span id="musicBtnText">🔇 音乐</span>
+                </button>
+            </div>
+
+            <!-- 音量控制 -->
+            <div class="volume-control">
+                <div class="volume-label">
+                    <span>🎵 音量</span>
+                    <span class="volume-value" id="volumeValue">50%</span>
+                </div>
+                <input type="range" min="0" max="100" value="50" class="volume-slider" id="volumeSlider" oninput="changeVolume(this.value)">
+            </div>
+
+            <!-- 设置切换按钮 -->
+            <button class="settings-toggle-btn" onclick="toggleSettings()">
+                <span id="settingsToggleText">⚙️ 展开设置</span>
+            </button>
+
+            <!-- 设置区域（可展开） -->
+            <div class="settings-area" id="settingsArea">
+                <div class="settings-divider"></div>
+                <div class="settings-content">
+                    <!-- 参数说明提示 -->
+                    <div class="param-tip">
+                        💡 <strong>参数说明：</strong>调整下方参数可自定义便签效果，修改后点击"保存"按钮生效
+                    </div>
+                    <div class="setting-group">
+                        <label class="setting-label">
+                            <span>📝 自定义便签</span>
+                        </label>
+                        <textarea class="setting-input setting-textarea" id="customNotes" placeholder="每行一条便签，随意输入内容&#10;例如：❤️ 记得吃饭&#10;😊 天气冷了&#10;💕 我很想你&#10;或者：今天天气真好"></textarea>
+                        <div class="setting-hint">每行一条，随意输入，支持emoji</div>
+                    </div>
+
+                    <div class="setting-group">
+                        <div class="slider-container">
+                            <label class="setting-label">
+                                <span>⏱️ 生成速度</span>
+                                <span class="slider-value" id="speedValue">500ms</span>
+                            </label>
+                            <input type="range" min="100" max="2000" value="500" class="setting-slider" id="speedSlider" oninput="updateSpeedValue(this.value)">
+                            <div class="setting-hint">控制便签出现的频率，数值越小出现越快</div>
+                        </div>
+                    </div>
+
+                    <div class="setting-group">
+                        <div class="slider-container">
+                            <label class="setting-label">
+                                <span>🎭 动画时长</span>
+                                <span class="slider-value" id="durationValue">6秒</span>
+                            </label>
+                            <input type="range" min="3" max="10" value="6" class="setting-slider" id="durationSlider" oninput="updateDurationValue(this.value)">
+                            <div class="setting-hint">便签从出现到消失的时间</div>
+                        </div>
+                    </div>
+
+                    <div class="setting-group">
+                        <div class="slider-container">
+                            <label class="setting-label">
+                                <span>✨ 特效概率</span>
+                                <span class="slider-value" id="effectValue">30%</span>
+                            </label>
+                            <input type="range" min="0" max="100" value="30" class="setting-slider" id="effectSlider" oninput="updateEffectValue(this.value)">
+                            <div class="setting-hint">便签带有特殊效果的概率</div>
+                        </div>
+                    </div>
+
+                    <div class="setting-group">
+                        <div class="slider-container">
+                            <label class="setting-label">
+                                <span>🎨 文字大小</span>
+                                <span class="slider-value" id="sizeValue">16px</span>
+                            </label>
+                            <input type="range" min="12" max="24" value="16" class="setting-slider" id="sizeSlider" oninput="updateSizeValue(this.value)">
+                            <div class="setting-hint">调整便签文字的显示大小</div>
+                        </div>
+                    </div>
+
+                    <!-- 操作按钮 -->
+                    <div class="action-buttons">
+                        <button class="save-btn" onclick="saveSettings()">
+                            💾 保存
+                        </button>
+                        <button class="reset-btn" onclick="resetSettings()">
+                            🔄 重置
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 弹窗 -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <div class="decoration-circles">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+                <div class="modal-icon">🎁</div>
+                <div class="modal-title">神秘礼物</div>
+                <div class="modal-subtitle">一份特别的惊喜等待着你</div>
+            </div>
+            <div class="modal-content">
+                <div class="modal-description">
+                    点击下方按钮，开启属于你的浪漫时刻<br>
+                    让温馨的话语如花瓣般飘落 ✨
+                </div>
+                <button class="modal-btn" onclick="startNotes()">
+                    <span>开启礼物</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 便签内容数组（150条，确保40秒够用）
+        const notes = [
+            { emoji: '❤️', text: '记得吃饭' },
+            { emoji: '😊', text: '天气冷了' },
+            { emoji: '💕', text: '我很想你' },
+            { emoji: '🌟', text: '保持好心情' },
+            { emoji: '😘', text: '按时吃饭' },
+            { emoji: '💖', text: '多喝热水' },
+            { emoji: '🥰', text: '早点休息' },
+            { emoji: '✨', text: '你最可爱' },
+            { emoji: '💝', text: '想抱抱你' },
+            { emoji: '😇', text: '注意身体' },
+            { emoji: '🌈', text: '开心每一天' },
+            { emoji: '💗', text: '你很特别' },
+            { emoji: '🎈', text: '别熬夜了' },
+            { emoji: '🌸', text: '爱你哦' },
+            { emoji: '💫', text: '加油鸭' },
+            { emoji: '🍀', text: '好运连连' },
+            { emoji: '🌺', text: '笑一个' },
+            { emoji: '💐', text: '想见你' },
+            { emoji: '🎀', text: '超级爱你' },
+            { emoji: '🌹', text: '晚安好梦' },
+            { emoji: '💓', text: '照顾好自己' },
+            { emoji: '😍', text: '你真好看' },
+            { emoji: '🎉', text: '开心点呀' },
+            { emoji: '🌻', text: '要快乐哦' },
+            { emoji: '💞', text: '永远爱你' },
+            { emoji: '🥳', text: '今天也要加油' },
+            { emoji: '🌙', text: '晚安呀' },
+            { emoji: '⭐', text: '你是最棒的' },
+            { emoji: '🎁', text: '送你小心心' },
+            { emoji: '🍓', text: '甜甜的你' },
+            { emoji: '🌼', text: '阳光灿烂' },
+            { emoji: '💘', text: '想你了' },
+            { emoji: '😚', text: '亲亲你' },
+            { emoji: '🎊', text: '开开心心' },
+            { emoji: '🌷', text: '美好的一天' },
+            { emoji: '💌', text: '给你爱心' },
+            { emoji: '🤗', text: '抱抱你' },
+            { emoji: '🌟', text: '闪闪发光' },
+            { emoji: '💖', text: '超喜欢你' },
+            { emoji: '🎵', text: '心情美美哒' },
+            { emoji: '🌞', text: '元气满满' },
+            { emoji: '💝', text: '宝贝最好' },
+            { emoji: '😄', text: '笑容满面' },
+            { emoji: '🎶', text: '快乐每一秒' },
+            { emoji: '🌈', text: '彩虹般美好' },
+            { emoji: '💕', text: '爱你三千遍' },
+            { emoji: '🥰', text: '你最重要' },
+            { emoji: '✨', text: '闪耀的你' },
+            { emoji: '💗', text: '心动时刻' },
+            { emoji: '😊', text: '微笑常在' },
+            { emoji: '🌸', text: '温柔可爱' },
+            { emoji: '💫', text: '梦想成真' },
+            { emoji: '🎀', text: '甜蜜时光' },
+            { emoji: '🌺', text: '花样年华' },
+            { emoji: '💐', text: '芬芳馥郁' },
+            { emoji: '🌹', text: '浪漫时刻' },
+            { emoji: '💓', text: '心跳加速' },
+            { emoji: '😍', text: '眼里有光' },
+            { emoji: '🎉', text: '欢乐无限' },
+            { emoji: '🌻', text: '向阳而生' },
+            { emoji: '💞', text: '情深意长' },
+            { emoji: '🥳', text: '快乐无边' },
+            { emoji: '🌙', text: '月亮代表心' },
+            { emoji: '⭐', text: '星光璀璨' },
+            { emoji: '🎁', text: '惊喜不断' },
+            { emoji: '🍓', text: '甜蜜如初' },
+            { emoji: '🌼', text: '清新自然' },
+            { emoji: '💘', text: '一见钟情' },
+            { emoji: '😚', text: '温柔以待' },
+            { emoji: '🎊', text: '喜气洋洋' },
+            { emoji: '🌷', text: '优雅动人' },
+            { emoji: '💌', text: '情书一封' },
+            { emoji: '🤗', text: '温暖怀抱' },
+            { emoji: '🌟', text: '璀璨夺目' },
+            { emoji: '💖', text: '深情款款' },
+            { emoji: '🎵', text: '悦耳动听' },
+            { emoji: '🌞', text: '阳光明媚' },
+            { emoji: '💝', text: '珍贵无比' },
+            { emoji: '😄', text: '笑靥如花' },
+            { emoji: '🎶', text: '欢快旋律' },
+            { emoji: '🌠', text: '流星许愿' },
+            { emoji: '🦋', text: '蝴蝶飞舞' },
+            { emoji: '🎀', text: '粉色回忆' },
+            { emoji: '🍰', text: '甜蜜滋味' },
+            { emoji: '🎪', text: '欢乐时光' },
+            { emoji: '🌴', text: '椰风海韵' },
+            { emoji: '🎭', text: '精彩人生' },
+            { emoji: '🎨', text: '多彩生活' },
+            { emoji: '🎯', text: '目标达成' },
+            { emoji: '🏆', text: '你最优秀' },
+            { emoji: '🎸', text: '音乐相伴' },
+            { emoji: '📚', text: '知识无限' },
+            { emoji: '🌊', text: '海阔天空' },
+            { emoji: '🦄', text: '独一无二' },
+            { emoji: '🎂', text: '生日快乐' },
+            { emoji: '🍭', text: '甜甜圈圈' },
+            { emoji: '🌃', text: '夜色温柔' },
+            { emoji: '🎇', text: '烟火璀璨' },
+            { emoji: '🎆', text: '绚烂多彩' },
+            { emoji: '🌅', text: '日出东方' },
+            { emoji: '🌄', text: '晨曦微露' },
+            { emoji: '🌇', text: '夕阳无限' },
+            { emoji: '🌆', text: '城市之光' },
+            { emoji: '🏖️', text: '海滩漫步' },
+            { emoji: '🎠', text: '旋转木马' },
+            { emoji: '🎡', text: '摩天轮转' },
+            { emoji: '🎢', text: '刺激冒险' },
+            { emoji: '🎪', text: '马戏欢乐' },
+            { emoji: '🎭', text: '戏剧人生' },
+            { emoji: '🎬', text: '电影时光' },
+            { emoji: '🎤', text: '歌声嘹亮' },
+            { emoji: '🎧', text: '音乐陪伴' },
+            { emoji: '🎼', text: '乐谱悠扬' },
+            { emoji: '🎹', text: '琴声悠扬' },
+            { emoji: '🎺', text: '号角嘹亮' },
+            { emoji: '🎻', text: '小提琴曲' },
+            { emoji: '🥁', text: '鼓点激昂' },
+            { emoji: '🎲', text: '幸运骰子' },
+            { emoji: '🎯', text: '百发百中' },
+            { emoji: '🎳', text: '保龄球赛' },
+            { emoji: '🎮', text: '游戏快乐' },
+            { emoji: '🎰', text: '好运当头' },
+            { emoji: '🧸', text: '可爱玩偶' },
+            { emoji: '🎎', text: '人偶娃娃' },
+            { emoji: '🎏', text: '鲤鱼旗飘' },
+            { emoji: '🎐', text: '风铃叮当' },
+            { emoji: '🎑', text: '赏月时分' },
+            { emoji: '🧧', text: '红包满满' },
+            { emoji: '🎀', text: '蝴蝶结美' },
+            { emoji: '🎗️', text: '丝带飘扬' },
+            { emoji: '🎟️', text: '门票在手' },
+            { emoji: '🎫', text: '入场券到' },
+            { emoji: '🏅', text: '奖牌获得' },
+            { emoji: '🏆', text: '冠军归来' },
+            { emoji: '🥇', text: '金牌第一' },
+            { emoji: '🥈', text: '银牌亚军' },
+            { emoji: '🥉', text: '铜牌季军' },
+            { emoji: '⚽', text: '足球飞扬' },
+            { emoji: '🏀', text: '篮球跳跃' },
+            { emoji: '🏈', text: '橄榄球赛' },
+            { emoji: '⚾', text: '棒球挥棒' },
+            { emoji: '🎾', text: '网球对决' },
+            { emoji: '🏐', text: '排球扣杀' },
+            { emoji: '🏉', text: '英式橄榄' },
+            { emoji: '🎱', text: '台球精准' },
+            { emoji: '🏓', text: '乒乓对战' },
+            { emoji: '🏸', text: '羽毛球赛' }
+        ];
+
+        // 便签背景颜色数组 - 使用主题色系
+        const colors = [
+            'linear-gradient(135deg, oklch(0.85 0.10 0) 0%, oklch(0.90 0.08 30) 100%)',
+            'linear-gradient(135deg, oklch(0.85 0.10 60) 0%, oklch(0.90 0.08 90) 100%)',
+            'linear-gradient(135deg, oklch(0.85 0.10 120) 0%, oklch(0.90 0.08 150) 100%)',
+            'linear-gradient(135deg, oklch(0.85 0.10 180) 0%, oklch(0.90 0.08 210) 100%)',
+            'linear-gradient(135deg, oklch(0.85 0.10 240) 0%, oklch(0.90 0.08 270) 100%)',
+            'linear-gradient(135deg, oklch(0.85 0.10 300) 0%, oklch(0.90 0.08 330) 100%)',
+            'linear-gradient(135deg, oklch(0.88 0.08 30) 0%, oklch(0.92 0.06 60) 100%)',
+            'linear-gradient(135deg, oklch(0.88 0.08 90) 0%, oklch(0.92 0.06 120) 100%)',
+            'linear-gradient(135deg, oklch(0.88 0.08 150) 0%, oklch(0.92 0.06 180) 100%)',
+            'linear-gradient(135deg, oklch(0.88 0.08 210) 0%, oklch(0.92 0.06 240) 100%)',
+            'linear-gradient(135deg, oklch(0.88 0.08 270) 0%, oklch(0.92 0.06 300) 100%)',
+            'linear-gradient(135deg, oklch(0.88 0.08 330) 0%, oklch(0.92 0.06 0) 100%)'
+        ];
+
+        let noteIndex = 0;
+        let intervalId = null;
+        let bgMusic = null;
+        let isPaused = false;
+        let isMusicPaused = true; // 默认音乐是暂停状态
+
+        // 默认设置
+        const defaultSettings = {
+            speed: 500,
+            duration: 6,
+            effectProbability: 30,
+            fontSize: 16,
+            customNotes: []
+        };
+
+        // 用户自定义设置
+        let userSettings = { ...defaultSettings };
+
+        // 创建背景音乐（但不自动播放）
+        function createBackgroundMusic() {
+            if (bgMusic) return; // 如果已经创建，直接返回
+
+            bgMusic = new Audio();
+            bgMusic.src = '/assets/images/background-music.mp3';
+            bgMusic.loop = true;
+            bgMusic.volume = 0.5;
+            // 不自动播放，等待用户点击按钮
+        }
+
+        // 切换音乐播放/暂停
+        function toggleMusic() {
+            const musicBtnText = document.getElementById('musicBtnText');
+
+            // 如果音乐还没创建，先创建
+            if (!bgMusic) {
+                createBackgroundMusic();
+            }
+
+            if (isMusicPaused) {
+                bgMusic.play().catch(e => {
+                    console.log('音乐播放失败:', e);
+                });
+                musicBtnText.textContent = '🔊 音乐';
+                isMusicPaused = false;
+            } else {
+                bgMusic.pause();
+                musicBtnText.textContent = '🔇 音乐';
+                isMusicPaused = true;
+            }
+        }
+
+        // 改变音量
+        function changeVolume(value) {
+            const volumeValue = document.getElementById('volumeValue');
+            volumeValue.textContent = value + '%';
+            if (bgMusic) {
+                bgMusic.volume = value / 100;
+            }
+        }
+
+        // 切换面板展开/收起（仅在收起状态时可用）
+        function togglePanel() {
+            const panel = document.getElementById('controlPanel');
+
+            // 只有在收起状态时才能通过点击图标展开
+            if (!panel.classList.contains('expanded')) {
+                panel.classList.add('expanded');
+            }
+        }
+
+        // 最小化面板（通过最小化按钮）
+        function minimizePanel(event) {
+            event.stopPropagation(); // 阻止事件冒泡
+            const panel = document.getElementById('controlPanel');
+            const settingsArea = document.getElementById('settingsArea');
+            const toggleText = document.getElementById('settingsToggleText');
+
+            // 收起面板
+            panel.classList.remove('expanded');
+            // 同时收起设置区域
+            if (settingsArea && settingsArea.classList.contains('expanded')) {
+                settingsArea.classList.remove('expanded');
+                if (toggleText) {
+                    toggleText.textContent = '⚙️ 展开设置';
+                }
+            }
+        }
+
+        // 切换设置区域
+        function toggleSettings() {
+            const settingsArea = document.getElementById('settingsArea');
+            const toggleText = document.getElementById('settingsToggleText');
+
+            if (settingsArea.classList.contains('expanded')) {
+                settingsArea.classList.remove('expanded');
+                toggleText.textContent = '⚙️ 展开设置';
+            } else {
+                settingsArea.classList.add('expanded');
+                toggleText.textContent = '⚙️ 收起设置';
+            }
+        }
+
+        // 更新速度值显示
+        function updateSpeedValue(value) {
+            document.getElementById('speedValue').textContent = value + 'ms';
+        }
+
+        // 更新持续时间值显示
+        function updateDurationValue(value) {
+            document.getElementById('durationValue').textContent = value + '秒';
+        }
+
+        // 更新特效概率值显示
+        function updateEffectValue(value) {
+            document.getElementById('effectValue').textContent = value + '%';
+        }
+
+        // 更新大小值显示
+        function updateSizeValue(value) {
+            document.getElementById('sizeValue').textContent = value + 'px';
+        }
+
+        // 保存设置
+        function saveSettings() {
+            // 获取自定义便签内容（不限制格式）
+            const customNotesText = document.getElementById('customNotes').value.trim();
+            userSettings.customNotes = [];
+
+            if (customNotesText) {
+                const lines = customNotesText.split('\n');
+                lines.forEach(line => {
+                    line = line.trim();
+                    if (line) {
+                        // 尝试分离emoji和文字
+                        const emojiMatch = line.match(/^([\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}])\s*(.*)$/u);
+
+                        if (emojiMatch && emojiMatch[2]) {
+                            // 有emoji和文字
+                            userSettings.customNotes.push({
+                                emoji: emojiMatch[1],
+                                text: emojiMatch[2]
+                            });
+                        } else if (emojiMatch) {
+                            // 只有emoji
+                            userSettings.customNotes.push({
+                                emoji: emojiMatch[1],
+                                text: ''
+                            });
+                        } else {
+                            // 没有emoji，使用默认emoji
+                            userSettings.customNotes.push({
+                                emoji: '💬',
+                                text: line
+                            });
+                        }
+                    }
+                });
+            }
+
+            // 获取其他设置
+            userSettings.speed = parseInt(document.getElementById('speedSlider').value);
+            userSettings.duration = parseInt(document.getElementById('durationSlider').value);
+            userSettings.effectProbability = parseInt(document.getElementById('effectSlider').value);
+            userSettings.fontSize = parseInt(document.getElementById('sizeSlider').value);
+
+            // 重启便签生成
+            if (intervalId && !isPaused) {
+                clearInterval(intervalId);
+                intervalId = setInterval(createNote, userSettings.speed);
+            }
+
+            // 显示提示
+            alert('✅ 设置已保存并应用！');
+        }
+
+        // 重置设置
+        function resetSettings() {
+            if (!confirm('确定要恢复默认设置吗？')) {
+                return;
+            }
+
+            // 恢复默认值
+            userSettings = { ...defaultSettings };
+
+            // 更新UI
+            document.getElementById('customNotes').value = '';
+            document.getElementById('speedSlider').value = defaultSettings.speed;
+            document.getElementById('durationSlider').value = defaultSettings.duration;
+            document.getElementById('effectSlider').value = defaultSettings.effectProbability;
+            document.getElementById('sizeSlider').value = defaultSettings.fontSize;
+
+            // 更新显示值
+            updateSpeedValue(defaultSettings.speed);
+            updateDurationValue(defaultSettings.duration);
+            updateEffectValue(defaultSettings.effectProbability);
+            updateSizeValue(defaultSettings.fontSize);
+
+            // 重启便签生成
+            if (intervalId && !isPaused) {
+                clearInterval(intervalId);
+                intervalId = setInterval(createNote, userSettings.speed);
+            }
+
+            alert('✅ 已恢复默认设置！');
+        }
+
+
+
+
+
+        function startNotes() {
+            const modal = document.getElementById('modal');
+            modal.classList.add('hidden');
+
+            // 只创建音乐对象，不自动播放
+            createBackgroundMusic();
+
+            // 等待动画结束后移除
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+
+            // 显示控制面板
+            document.getElementById('controlPanel').classList.add('show');
+
+            // 开始生成便签 - 使用用户设置的速度
+            intervalId = setInterval(createNote, userSettings.speed);
+        }
+
+        // 暂停/继续便签
+        function toggleNotes() {
+            const btnText = document.getElementById('btnText');
+
+            if (isPaused) {
+                // 继续 - 使用用户设置的速度
+                intervalId = setInterval(createNote, userSettings.speed);
+                btnText.textContent = '⏸️ 暂停';
+                isPaused = false;
+            } else {
+                // 暂停
+                clearInterval(intervalId);
+                btnText.textContent = '▶️ 继续';
+                isPaused = true;
+            }
+        }
+
+        // 创建心形粒子
+        function createHeartParticle(x, y) {
+            const hearts = ['❤️', '💕', '💖', '💗', '💝'];
+            const heart = document.createElement('div');
+            heart.className = 'heart-particle';
+            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = x + 'px';
+            heart.style.top = y + 'px';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 3000);
+        }
+
+        // 创建闪光效果
+        function createSparkles(x, y) {
+            for (let i = 0; i < 6; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                const angle = (Math.PI * 2 * i) / 6;
+                const distance = 30 + Math.random() * 20;
+                sparkle.style.left = (x + Math.cos(angle) * distance) + 'px';
+                sparkle.style.top = (y + Math.sin(angle) * distance) + 'px';
+                document.body.appendChild(sparkle);
+
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 1000);
+            }
+        }
+
+        function createNote() {
+            // 使用自定义便签或默认便签
+            const notesArray = userSettings.customNotes.length > 0 ? userSettings.customNotes : notes;
+
+            if (noteIndex >= notesArray.length) {
+                noteIndex = 0; // 循环使用
+            }
+
+            const note = document.createElement('div');
+            note.className = 'note';
+
+            // 随机颜色
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            note.style.background = randomColor;
+
+            // 应用用户设置的字体大小
+            note.style.fontSize = userSettings.fontSize + 'px';
+
+            // 应用用户设置的动画持续时间
+            note.style.animationDuration = userSettings.duration + 's';
+
+            // 随机位置（屏幕底部）
+            const maxLeft = window.innerWidth - 200;
+            const randomLeft = Math.random() * Math.max(0, maxLeft);
+            note.style.left = randomLeft + 'px';
+            note.style.bottom = '-100px';
+
+            // 随机动画延迟
+            const randomDelay = Math.random() * 0.5;
+            note.style.animationDelay = randomDelay + 's';
+
+            // 设置内容
+            const noteData = notesArray[noteIndex];
+            note.innerHTML = `<span class="note-emoji">${noteData.emoji}</span><span class="note-text">${noteData.text}</span>`;
+
+            document.body.appendChild(note);
+
+            // 创建特效（使用用户设置的概率）
+            const effectThreshold = 1 - (userSettings.effectProbability / 100);
+            if (Math.random() > effectThreshold) {
+                const centerX = randomLeft + 100;
+                const centerY = window.innerHeight;
+
+                // 50% 概率创建心形粒子
+                if (Math.random() > 0.5) {
+                    createHeartParticle(centerX, centerY);
+                } else {
+                    // 否则创建闪光效果
+                    createSparkles(centerX, centerY);
+                }
+            }
+
+            // 使用用户设置的持续时间后移除元素
+            setTimeout(() => {
+                note.remove();
+            }, userSettings.duration * 1000 + 500);
+
+            noteIndex++;
+        }
+
+        // 创建背景粒子
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // 鼠标点击产生爱心效果
+        document.addEventListener('click', function(e) {
+            // 如果点击的是控制面板或弹窗，不产生爱心
+            if (e.target.closest('.control-panel') || e.target.closest('.modal-overlay')) {
+                return;
+            }
+
+            const hearts = ['❤️', '💕', '💖', '💗', '💝', '💓', '💞'];
+            const heart = document.createElement('div');
+            heart.className = 'heart-particle';
+            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = e.clientX + 'px';
+            heart.style.top = e.clientY + 'px';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 3000);
+        });
+
+        // 页面加载时创建粒子
+        window.addEventListener('load', createParticles);
+    </script>
+</body>
+</html>
+

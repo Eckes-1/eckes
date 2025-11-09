@@ -12,7 +12,7 @@ export const spineModelConfig: SpineModelConfig = {
   },
   position: {
     // 显示位置 bottom-left，bottom-right，top-left，top-right，注意：在右下角可能会挡住返回顶部按钮
-    corner: "bottom-left",
+    corner: "top-left",
     offsetX: 0, // 距离右边缘0px
     offsetY: 0, // 距离底部0px
   },
@@ -32,21 +32,17 @@ export const spineModelConfig: SpineModelConfig = {
       "emoji_6",
     ], // 点击时随机播放的动画列表
     clickMessages: [
-      "你好呀！我是流萤~",
+      "你好呀！欢迎来到我的博客~",
       "今天也要加油哦！✨",
-      "想要一起去看星空吗？🌟",
-      "记得要好好休息呢~",
       "有什么想对我说的吗？💫",
-      "让我们一起探索未知的世界吧！🚀",
-      "每一颗星星都有自己的故事~⭐",
-      "希望能带给你温暖和快乐！💖",
+      "努力挣钱吧",
     ], // 点击时随机显示的文字消息
     messageDisplayTime: 3000, // 文字显示时间（毫秒）
     idleAnimations: ["idle", "emoji_0", "emoji_1", "emoji_3", "emoji_4"], // 待机动画列表
     idleInterval: 8000, // 待机动画切换间隔（8秒）
   },
   responsive: {
-    hideOnMobile: true, // 在移动端隐藏
+    hideOnMobile: false, // 在移动端隐藏
     mobileBreakpoint: 768, // 移动端断点
   },
   zIndex: 1000, // 层级

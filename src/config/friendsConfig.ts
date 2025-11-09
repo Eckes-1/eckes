@@ -5,28 +5,27 @@ import type { FriendLink } from "../types/config";
 // 友链配置
 export const friendsConfig: FriendLink[] = [
   {
-    title: "夏夜流萤",
-    imgurl:
-      "https://q1.qlogo.cn/g?b=qq&nk=7618557&s=640",
-    desc: "总有一场相遇，是互相喜欢的！",
-    siteurl: "https://blog.cuteleaf.cn",
-    tags: ["Blog"],
+    title: "Eckes导航",
+    imgurl: "/assets/images/touxiang.jpg",
+    desc: "你个你需要的导航",
+    siteurl: "https://eckes.qzz.io/",
+    tags: ["Blog", "技术", "导航"],
     weight: 10, // 权重，数字越大排序越靠前
     enabled: true, // 是否启用
   },
   {
-    title: "Firefly Docs",
+    title: "Eckes Docs",
     imgurl: "https://docs-firefly.cuteleaf.cn/logo.png",
-    desc: "Firefly主题模板文档",
+    desc: "Eckes主题模板文档",
     siteurl: "https://docs-firefly.cuteleaf.cn",
     tags: ["Docs"],
     weight: 9,
     enabled: true,
   },
   {
-    title: "Firefly",
+    title: "Eckes",
     imgurl: "https://docs-firefly.cuteleaf.cn/logo.png",
-    desc: "Firefly 一款清新美观的 Astro 博客主题模板",
+    desc: "Eckes 一款清新美观的 Astro 博客主题模板",
     siteurl: "https://github.com/CuteLeaf/Firefly",
     tags: ["GitHub", "Theme"],
     weight: 9,

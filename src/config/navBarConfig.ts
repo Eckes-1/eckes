@@ -43,6 +43,11 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
     children: [
       ...(siteConfig.pages.anime ? [LinkPreset.Anime] : []), // 根据配置决定是否添加追番页面
       ...(siteConfig.pages.sponsor ? [LinkPreset.Sponsor] : []), // 根据配置决定是否添加赞助页面
+      {
+        name: "神秘礼物",
+        url: "/gift/",
+        icon: "material-symbols:redeem",
+      },
       LinkPreset.About,
     ],
   });

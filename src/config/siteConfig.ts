@@ -6,18 +6,16 @@ import { fontConfig } from "./fontConfig";
 const SITE_LANG = "zh_CN";
 
 export const siteConfig: SiteConfig = {
-  title: "Firefly",
-  subtitle: "Demo site",
+  title: "Eckes的博客",
+  subtitle: "分享编程与生活",
   description:
-    "Firefly 是一款基于 Astro 框架开发的清新美观且现代化个人博客主题，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。",
+    "一个专注于前端开发和AI技术的个人博客，分享各种内容",
   keywords: [
-    "Firefly",
-    "Fuwari",
-    "Astro",
-    "ACGN",
+    "前端",
+    "JavaScript",
+    "React",
+    "AI",
     "博客",
-    "技术博客",
-    "静态博客",
   ],
 
   lang: SITE_LANG,
@@ -44,10 +42,10 @@ export const siteConfig: SiteConfig = {
   // { type: "image", value: "https://example.com/logo.png", alt: "Firefly Logo" }
   navbarLogo: {
     type: "image",
-    value: "/assets/images/LiuYingPure3.svg",
-    alt: "🍀",
+    value: "/assets/images/touxiang.jpg",
+    alt: "Eckes",
   },
-  navbarTitle: "Firefly", // 导航栏标题，可以设置为与 title 不同的值，如果不设置则使用 title
+  navbarTitle: "Eckes的博客", // 导航栏标题，可以设置为与 title 不同的值，如果不设置则使用 title
 
   // 追番配置
   bangumi: {
@@ -70,7 +68,7 @@ export const siteConfig: SiteConfig = {
   // 文章列表布局配置
   postListLayout: {
     // 默认布局模式："list" 列表模式（单列布局），"grid" 网格模式（双列布局）
-    defaultMode: "list",
+    defaultMode: "grid",
     // 是否允许用户切换布局
     allowSwitch: true,
   },

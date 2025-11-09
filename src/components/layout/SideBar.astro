@@ -62,7 +62,7 @@ function renderComponent(component: any, index: number, _components: any[]) {
 }
 ---
 
-<div id="sidebar" class:list={[className, "w-full"]}>
+<div id="sidebar" class:list={[className, "w-full", "relative"]}>
   <!-- 顶部固定组件区域 -->
   {
     topComponents.length > 0 && (
@@ -99,6 +99,9 @@ function renderComponent(component: any, index: number, _components: any[]) {
       </div>
     )
   }
+
+  <!-- 底部装饰渐变 -->
+  <div class="sidebar-bottom-gradient pointer-events-none"></div>
 </div>
 
 <!-- 响应式样式和JavaScript -->
@@ -119,6 +122,54 @@ function renderComponent(component: any, index: number, _components: any[]) {
   @media (min-width: 1025px) {
     #sidebar {
       display: var(--sidebar-desktop-display, block);
+    }
+  }
+
+  /* 侧边栏底部装饰渐变 */
+  .sidebar-bottom-gradient {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 17.5rem;
+    height: 200px;
+    background: linear-gradient(
+      to top,
+      rgba(var(--card-bg-rgb, 255, 255, 255), 0.3) 0%,
+      rgba(var(--card-bg-rgb, 255, 255, 255), 0.15) 30%,
+      transparent 100%
+    );
+    z-index: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  /* 暗色模式下的渐变 */
+  :global(.dark) .sidebar-bottom-gradient {
+    background: linear-gradient(
+      to top,
+      rgba(30, 30, 30, 0.4) 0%,
+      rgba(30, 30, 30, 0.2) 30%,
+      transparent 100%
+    );
+  }
+
+  /* 移动端隐藏底部渐变 */
+  @media (max-width: 768px) {
+    .sidebar-bottom-gradient {
+      display: none;
+    }
+  }
+
+  /* 平板端调整宽度 */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .sidebar-bottom-gradient {
+      width: 280px;
+    }
+  }
+
+  /* 桌面端宽度 */
+  @media (min-width: 1025px) {
+    .sidebar-bottom-gradient {
+      width: 320px;
     }
   }
 </style>

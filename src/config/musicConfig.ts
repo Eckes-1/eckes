@@ -15,13 +15,13 @@ export const musicPlayerConfig: MusicPlayerConfig = {
     api: "https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&r=:r",
 
     // 音乐平台：netease=网易云音乐, tencent=QQ音乐, kugou=酷狗音乐, xiami=虾米音乐, baidu=百度音乐
-    server: "netease",
+    server: "kugou",
 
     // 类型：song=单曲, playlist=歌单, album=专辑, search=搜索, artist=艺术家
     type: "playlist",
 
     // 歌单/专辑/单曲 ID 或搜索关键词
-    id: "10046455237", // 网易云音乐歌单ID示例
+    id: "1316506973", // 酷狗音乐歌单ID
 
     // 认证 token（可选）
     auth: "",
@@ -55,13 +55,13 @@ export const musicPlayerConfig: MusicPlayerConfig = {
   // APlayer 配置选项
   player: {
     // 是否自动播放  浏览器可能会阻止，需用户交互一次网页后才自动播放
-    autoplay: false,
+    autoplay: true,
 
     // 主题色
     theme: "var(--btn-regular-bg)",
 
     // 循环模式：'all'=列表循环, 'one'=单曲循环, 'none'=不循环
-    loop: "all",
+    loop: "none",
 
     // 播放顺序：'list'=列表顺序, 'random'=随机播放
     order: "list",
