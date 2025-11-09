@@ -421,22 +421,10 @@
 
         .control-panel.show {
             display: block;
-            animation: slideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .control-panel.expanded {
             width: 280px;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateY(100px) scale(0.8);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0) scale(1);
-                opacity: 1;
-            }
         }
 
         /* 面板头部 */
@@ -469,18 +457,9 @@
             transform: scale(0.95);
         }
 
-        /* 收起状态的图标动画 */
+        /* 收起状态 */
         .control-panel:not(.expanded) .panel-header {
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            }
-            50% {
-                box-shadow: 0 4px 20px rgba(var(--primary), 0.4);
-            }
+            cursor: pointer;
         }
 
         /* 展开状态的面板头部 */
@@ -522,20 +501,8 @@
 
         .control-panel.expanded .panel-header-text {
             display: inline-block;
-            animation: fadeInRight 0.3s ease;
             margin-left: 8px;
             margin-right: auto;
-        }
-
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
         }
 
         /* 最小化按钮 */
@@ -571,16 +538,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
         }
 
         /* 面板内容 */
