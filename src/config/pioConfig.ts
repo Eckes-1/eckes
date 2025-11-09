@@ -12,8 +12,8 @@ export const spineModelConfig: SpineModelConfig = {
   },
   position: {
     // 显示位置 bottom-left，bottom-right，top-left，top-right，注意：在右下角可能会挡住返回顶部按钮
-    corner: "top-left",
-    offsetX: 0, // 距离右边缘0px
+    corner: "bottom-left",
+    offsetX: 0, // 距离左边缘0px
     offsetY: 0, // 距离底部0px
   },
   size: {
