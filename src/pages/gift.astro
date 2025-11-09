@@ -1,0 +1,67 @@
+---
+import I18nKey from "@/i18n/i18nKey";
+import { i18n } from "@/i18n/translation";
+import MainGridLayout from "@/layouts/MainGridLayout.astro";
+---
+
+<MainGridLayout title="神秘礼物 💝" description="一份特别的礼物送给你">
+    <div class="gift-page-wrapper">
+        <div class="gift-container flex w-full rounded-[var(--radius-large)] overflow-hidden relative">
+            <div class="card-base z-10 relative w-full p-0 overflow-hidden" style="background: transparent; box-shadow: none;">
+                <iframe
+                    src="/love-notes.html"
+                    class="gift-iframe w-full border-0"
+                    title="神秘礼物"
+                ></iframe>
+            </div>
+        </div>
+    </div>
+</MainGridLayout>
+
+<style>
+    .gift-page-wrapper {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .gift-container {
+        /* 使用合适的高度，保持页面完整性 */
+        height: 75vh;
+        min-height: 500px;
+        margin-bottom: 1.5rem;
+    }
+
+    .gift-iframe {
+        display: block;
+        height: 100%;
+        background: transparent;
+    }
+
+    /* 移动端优化 */
+    @media (max-width: 768px) {
+        .gift-container {
+            height: 70vh;
+            min-height: 400px;
+        }
+
+        .gift-page-wrapper {
+            margin-bottom: 1rem;
+        }
+    }
+
+    /* 平板端优化 */
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .gift-container {
+            height: 72vh;
+            min-height: 450px;
+        }
+    }
+
+    /* 大屏幕优化 */
+    @media (min-width: 1440px) {
+        .gift-container {
+            height: 78vh;
+            min-height: 600px;
+        }
+    }
+</style>
