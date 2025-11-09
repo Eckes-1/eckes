@@ -15,13 +15,13 @@ export const musicPlayerConfig: MusicPlayerConfig = {
     api: "https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&r=:r",
 
     // 音乐平台：netease=网易云音乐, tencent=QQ音乐, kugou=酷狗音乐, xiami=虾米音乐, baidu=百度音乐
-    server: "kugou",
+    server: "netease",
 
     // 类型：song=单曲, playlist=歌单, album=专辑, search=搜索, artist=艺术家
     type: "playlist",
 
     // 歌单/专辑/单曲 ID 或搜索关键词
-    id: "1316506973", // 酷狗音乐歌单ID
+    id: "7452421335", // 网易云音乐热门歌单
 
     // 认证 token（可选）
     auth: "",
