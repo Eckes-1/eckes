@@ -30,12 +30,12 @@ export const adConfig2: AdConfig = {
   image: {
     src: "/assets/images/d2.webp",
     alt: "支持博主",
-    link: "about/",
+    link: "/sponsor/",
     external: false,
   },
   link: {
     text: "支持一下",
-    url: "about/",
+    url: "/sponsor/",
     external: false,
   },
   closable: true,
