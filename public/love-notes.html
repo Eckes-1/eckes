@@ -615,10 +615,10 @@
             background: rgba(0, 0, 0, 0.3);
         }
 
-        /* 控制按钮组 */
+        /* 控制按钮组 - 3列布局 */
         .control-buttons {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 8px;
             margin-bottom: 12px;
         }
@@ -714,31 +714,15 @@
             font-weight: 700;
         }
 
-        /* 设置按钮 */
-        .settings-toggle-btn {
-            background: var(--btn-regular-bg);
-            color: var(--primary);
-            border: none;
-            padding: 10px;
-            border-radius: 0.5rem;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            width: 100%;
+        /* 自定义按钮激活状态 */
+        .control-btn.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px oklch(0.70 0.14 var(--hue) / 0.3);
         }
 
-        .settings-toggle-btn:hover {
-            background: var(--btn-regular-bg-hover);
-            transform: translateY(-2px);
-        }
-
-        .settings-toggle-btn:active {
-            transform: translateY(0);
+        .control-btn.active:hover {
+            background: oklch(0.65 0.14 var(--hue));
         }
 
         /* 设置区域（可展开/收起） */
@@ -1037,7 +1021,14 @@
                 display: none;
             }
             .control-buttons {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 6px;
+            }
+
+            .control-btn {
+                padding: 10px 8px;
+                font-size: 12px;
+                gap: 4px;
             }
             .action-buttons {
                 grid-template-columns: 1fr;
@@ -1081,6 +1072,9 @@
                 <button class="control-btn" onclick="toggleMusic()">
                     <span id="musicBtnText">🔇 音乐</span>
                 </button>
+                <button class="control-btn" onclick="toggleSettings()">
+                    <span id="settingsToggleText">✨ 自定义</span>
+                </button>
             </div>
 
             <!-- 音量控制 -->
@@ -1091,11 +1085,6 @@
                 </div>
                 <input type="range" min="0" max="100" value="50" class="volume-slider" id="volumeSlider" oninput="changeVolume(this.value)">
             </div>
-
-            <!-- 设置切换按钮 -->
-            <button class="settings-toggle-btn" onclick="toggleSettings()">
-                <span id="settingsToggleText">⚙️ 展开设置</span>
-            </button>
 
             <!-- 设置区域（可展开） -->
             <div class="settings-area" id="settingsArea">
@@ -1456,13 +1445,16 @@
         function toggleSettings() {
             const settingsArea = document.getElementById('settingsArea');
             const toggleText = document.getElementById('settingsToggleText');
+            const customBtn = toggleText.closest('.control-btn');
 
             if (settingsArea.classList.contains('expanded')) {
                 settingsArea.classList.remove('expanded');
-                toggleText.textContent = '⚙️ 展开设置';
+                toggleText.textContent = '✨ 自定义';
+                customBtn.classList.remove('active');
             } else {
                 settingsArea.classList.add('expanded');
-                toggleText.textContent = '⚙️ 收起设置';
+                toggleText.textContent = '✨ 收起';
+                customBtn.classList.add('active');
             }
         }
 
