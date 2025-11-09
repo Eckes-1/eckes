@@ -6,7 +6,7 @@ import { fontConfig } from "./fontConfig";
 const SITE_LANG = "zh_CN";
 
 export const siteConfig: SiteConfig = {
-  title: "Eckes的博客",
+  title: "Eckes",
   subtitle: "分享编程与生活",
   description:
     "一个专注于前端开发和AI技术的个人博客，分享各种内容",
@@ -48,7 +48,7 @@ export const siteConfig: SiteConfig = {
     value: "/assets/images/touxiang.jpg",
     alt: "Eckes",
   },
-  navbarTitle: "Eckes的博客", // 导航栏标题，可以设置为与 title 不同的值，如果不设置则使用 title
+  navbarTitle: "Eckes", // 导航栏标题，可以设置为与 title 不同的值，如果不设置则使用 title
 
   // 追番配置
   bangumi: {
@@ -107,7 +107,7 @@ export const siteConfig: SiteConfig = {
         // 主页显示自定义文本（全局开关）
         enable: true,
         // 主页横幅主标题
-        title: "Lovely firefly!",
+        title: "Lovely Eckes!",
         // 主页横幅副标题
         subtitle: [
           "In Reddened Chrysalis, I Once Rest",
