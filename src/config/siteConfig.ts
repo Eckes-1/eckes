@@ -18,6 +18,9 @@ export const siteConfig: SiteConfig = {
     "博客",
   ],
 
+  // 网站URL配置
+  url: "https://eskesl.qzz.io",
+
   lang: SITE_LANG,
 
   themeColor: {
