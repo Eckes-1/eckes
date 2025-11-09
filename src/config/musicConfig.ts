@@ -54,14 +54,20 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 
   // APlayer 配置选项
   player: {
+    // 是否固定在页面底部
+    fixed: true,
+
+    // 是否使用迷你模式
+    mini: true,
+
     // 是否自动播放  浏览器可能会阻止，需用户交互一次网页后才自动播放
-    autoplay: true,
+    autoplay: false,
 
     // 主题色
     theme: "var(--btn-regular-bg)",
 
     // 循环模式：'all'=列表循环, 'one'=单曲循环, 'none'=不循环
-    loop: "none",
+    loop: "all",
 
     // 播放顺序：'list'=列表顺序, 'random'=随机播放
     order: "list",
