@@ -914,19 +914,23 @@
             margin-top: 5px;
         }
 
-        /* 提示信息样式 */
+        /* 提示信息样式 - 清新设计 */
         .info-tip {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, 
+                oklch(0.95 0.05 var(--hue) / 0.8),
+                oklch(0.93 0.06 var(--hue) / 0.9)
+            );
+            border: 1px solid oklch(0.85 0.08 var(--hue) / 0.4);
+            color: var(--deep-text);
             padding: 10px 12px;
-            border-radius: 0.5rem;
+            border-radius: 0.625rem;
             font-size: 12px;
             margin-bottom: 12px;
             display: flex;
             align-items: flex-start;
             gap: 8px;
             line-height: 1.5;
-            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
             animation: tipFadeIn 0.5s ease;
         }
 
