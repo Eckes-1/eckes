@@ -12,7 +12,7 @@ pages_build_output_dir = "dist"
 [[d1_databases]]
 binding = "DB"  # 在代码中通过 locals.runtime.env.DB 访问
 database_name = "eckes-blog-db"
-database_id = "YOUR_DATABASE_ID_HERE"  # 替换为实际的数据库 ID
+database_id = "6f4a08f5-2fb7-4941-8577-5ee14afe5734"  # 数据库 ID
 
 # KV 命名空间绑定（用于会话存储等）
 # 同样需要先在 Cloudflare Dashboard 创建
