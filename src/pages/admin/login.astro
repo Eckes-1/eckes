@@ -1,0 +1,116 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+// 这是一个 SSR 页面
+export const prerender = false;
+---
+
+<Layout title="管理员登录" description="Eckes 博客管理员登录">
+  <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-8">
+      <div class="card-base p-8">
+        <div class="text-center">
+          <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+            管理员登录
+          </h2>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">
+            输入您的凭据以访问管理面板
+          </p>
+        </div>
+
+        <form id="login-form" class="mt-8 space-y-6">
+          <div class="space-y-4">
+            <div>
+              <label for="username" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
+                用户名或邮箱
+              </label>
+              <input
+                id="username"
+                name="username"
+                type="text"
+                required
+                class="appearance-none relative block w-full px-3 py-2 border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent"
+                placeholder="请输入用户名或邮箱"
+              />
+            </div>
+
+            <div>
+              <label for="password" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
+                密码
+              </label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                required
+                class="appearance-none relative block w-full px-3 py-2 border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent"
+                placeholder="请输入密码"
+              />
+            </div>
+          </div>
+
+          <div id="error-message" class="hidden text-red-600 dark:text-red-400 text-sm text-center p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
+          </div>
+
+          <div>
+            <button
+              type="submit"
+              class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-[var(--primary)] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--primary)] transition-all active:scale-95"
+            >
+              登录
+            </button>
+          </div>
+
+          <div class="text-center text-sm text-neutral-600 dark:text-neutral-400">
+            <a href="/" class="hover:text-[var(--primary)] transition-colors">
+              返回首页
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const form = document.getElementById('login-form') as HTMLFormElement;
+  const errorMessage = document.getElementById('error-message') as HTMLDivElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // 获取表单数据
+    const formData = new FormData(form);
+    const username = formData.get('username') as string;
+    const password = formData.get('password') as string;
+
+    // 隐藏之前的错误消息
+    errorMessage.classList.add('hidden');
+
+    try {
+      // 发送登录请求
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        // 登录成功，跳转到管理面板
+        window.location.href = '/admin/';
+      } else {
+        // 显示错误消息
+        errorMessage.textContent = data.error || '登录失败，请重试';
+        errorMessage.classList.remove('hidden');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      errorMessage.textContent = '网络错误，请稍后重试';
+      errorMessage.classList.remove('hidden');
+    }
+  });
+</script>
