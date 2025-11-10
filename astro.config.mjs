@@ -27,18 +27,11 @@ import { remarkMermaid } from "./src/plugins/remark-mermaid.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 import mdx from "@astrojs/mdx";
 import searchIndexer from "./src/integrations/searchIndex.mts";
-import cloudflare from "@astrojs/cloudflare";
 // https://astro.build/config
 export default defineConfig({
 	site: "https://firefly.cuteleaf.cn/",
 	base: "/",
 	trailingSlash: "always",
-	// SSR 模式：按需在页面级别使用 prerender
-	output: "server",
-	// Cloudflare Pages 适配器
-	adapter: cloudflare({
-		mode: "directory",
-	}),
 	integrations: [
 		tailwind({
 			nesting: true,
