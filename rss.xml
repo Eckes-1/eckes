@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Eckes - 分享编程与生活</title><description>一个专注于前端开发和AI技术的个人博客，分享各种内容</description><link>https://firefly.cuteleaf.cn/</link><language>zh_CN</language><item><title>欢迎来到我的博客</title><link>https://firefly.cuteleaf.cn/posts/welcome/</link><guid isPermaLink="true">https://firefly.cuteleaf.cn/posts/welcome/</guid><description>这是我的第一篇博客文章，欢迎大家来到我的个人博客！</description><pubDate>Sun, 09 Nov 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;👋 你好，世界！&lt;/h2&gt;
+&lt;p&gt;欢迎来到我的个人博客！这是我的第一篇文章，很高兴能在这里与大家分享我的想法、经验和故事。&lt;/p&gt;
+&lt;h3&gt;关于这个博客&lt;/h3&gt;
+&lt;p&gt;这个博客是我用来记录生活、分享技术、表达想法的地方。在这里，你可能会看到：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;💻 &lt;strong&gt;技术文章&lt;/strong&gt;：我的学习笔记和技术分享&lt;/li&gt;
+&lt;li&gt;📝 &lt;strong&gt;生活随笔&lt;/strong&gt;：日常生活的感悟和思考&lt;/li&gt;
+&lt;li&gt;🎨 &lt;strong&gt;创意作品&lt;/strong&gt;：一些有趣的想法和项目&lt;/li&gt;
+&lt;li&gt;📚 &lt;strong&gt;读书笔记&lt;/strong&gt;：阅读过程中的收获和感想&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;为什么写博客？&lt;/h3&gt;
+&lt;p&gt;写博客对我来说是一个记录成长、整理思路的过程。通过文字，我可以：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;记录学习轨迹&lt;/strong&gt; - 把学到的知识整理成文章，加深理解&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分享经验&lt;/strong&gt; - 希望我的经验能帮助到有需要的人&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;认识朋友&lt;/strong&gt; - 通过博客结识志同道合的朋友&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;提升表达&lt;/strong&gt; - 锻炼自己的写作和表达能力&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;未来计划&lt;/h3&gt;
+&lt;p&gt;接下来，我计划在博客上分享更多内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] Web 开发相关的技术文章&lt;/li&gt;
+&lt;li&gt;[ ] 开源项目的使用心得&lt;/li&gt;
+&lt;li&gt;[ ] 个人成长和思考&lt;/li&gt;
+&lt;li&gt;[ ] 有趣的生活故事&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;说在最后&lt;/h3&gt;
+&lt;p&gt;感谢你访问我的博客！如果你喜欢这里的内容，欢迎：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;订阅 RSS 获取最新文章&lt;/li&gt;
+&lt;li&gt;在评论区留下你的想法&lt;/li&gt;
+&lt;li&gt;分享给你的朋友&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;让我们一起成长，一起进步！✨&lt;/p&gt;
+</content:encoded></item><item><title>我常用的 Web 开发工具推荐</title><link>https://firefly.cuteleaf.cn/posts/web-development-tools/</link><guid isPermaLink="true">https://firefly.cuteleaf.cn/posts/web-development-tools/</guid><description>分享我在日常开发中经常使用的工具和服务，帮助提升开发效率。</description><pubDate>Sat, 08 Nov 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;🛠️ 开发工具推荐&lt;/h2&gt;
+&lt;p&gt;作为一名 Web 开发者，选择合适的工具可以大大提升开发效率。今天分享一些我日常使用的工具。&lt;/p&gt;
+&lt;h3&gt;代码编辑器&lt;/h3&gt;
+&lt;h4&gt;VS Code&lt;/h4&gt;
+&lt;p&gt;目前最流行的代码编辑器之一，强大的插件生态让它几乎无所不能。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;推荐插件&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Prettier&lt;/strong&gt; - 代码格式化&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ESLint&lt;/strong&gt; - 代码质量检查&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitLens&lt;/strong&gt; - Git 增强工具&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Auto Rename Tag&lt;/strong&gt; - 自动重命名配对标签&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;版本控制&lt;/h3&gt;
+&lt;h4&gt;Git + GitHub&lt;/h4&gt;
+&lt;p&gt;代码版本管理的标配，GitHub 不仅是代码托管平台，更是开源社区的聚集地。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;常用命令&lt;/strong&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 初始化仓库
+git init
+
+# 提交更改
+git add .
+git commit -m &quot;feat: 添加新功能&quot;
+
+# 推送到远程
+git push origin main
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;包管理器&lt;/h3&gt;
+&lt;h4&gt;pnpm&lt;/h4&gt;
+&lt;p&gt;相比 npm 和 yarn，pnpm 更快、更节省磁盘空间。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 安装依赖
+pnpm install
+
+# 添加包
+pnpm add package-name
+
+# 运行脚本
+pnpm dev
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;浏览器开发工具&lt;/h3&gt;
+&lt;h4&gt;Chrome DevTools&lt;/h4&gt;
+&lt;p&gt;强大的浏览器开发者工具，用于调试、性能分析、网络请求监控等。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;常用功能&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Elements - 查看和修改 DOM&lt;/li&gt;
+&lt;li&gt;Console - JavaScript 调试&lt;/li&gt;
+&lt;li&gt;Network - 网络请求分析&lt;/li&gt;
+&lt;li&gt;Performance - 性能分析&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;API 测试工具&lt;/h3&gt;
+&lt;h4&gt;Postman&lt;/h4&gt;
+&lt;p&gt;API 开发和测试的必备工具，支持各种 HTTP 请求方法。&lt;/p&gt;
+&lt;h3&gt;设计工具&lt;/h3&gt;
+&lt;h4&gt;Figma&lt;/h4&gt;
+&lt;p&gt;基于浏览器的设计工具，团队协作非常方便。&lt;/p&gt;
+&lt;h3&gt;部署平台&lt;/h3&gt;
+&lt;h4&gt;Vercel / Netlify&lt;/h4&gt;
+&lt;p&gt;一键部署静态网站，支持自动构建和 CDN 加速。&lt;/p&gt;
+&lt;h4&gt;Cloudflare Pages&lt;/h4&gt;
+&lt;p&gt;免费且强大的静态网站托管服务。&lt;/p&gt;
+&lt;h3&gt;学习资源&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MDN Web Docs&lt;/strong&gt; - Web 开发权威文档&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stack Overflow&lt;/strong&gt; - 问题解答社区&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHub&lt;/strong&gt; - 开源项目学习&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;总结&lt;/h3&gt;
+&lt;p&gt;工具只是辅助，真正重要的是理解原理和持续学习。选择适合自己的工具，不断优化工作流程，才能成为更高效的开发者。&lt;/p&gt;
+&lt;p&gt;你有什么推荐的开发工具吗？欢迎在评论区分享！🚀&lt;/p&gt;
+</content:encoded></item><item><title>2025年读书笔记 - 那些改变我的书</title><link>https://firefly.cuteleaf.cn/posts/reading-notes-2025/</link><guid isPermaLink="true">https://firefly.cuteleaf.cn/posts/reading-notes-2025/</guid><description>分享今年读过的好书和读书心得，记录阅读带来的成长和思考。</description><pubDate>Fri, 07 Nov 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;📚 2025 年读书清单&lt;/h2&gt;
+&lt;p&gt;今年给自己定了读书目标，希望通过阅读拓宽视野、提升思维。这里记录一些读过的好书。&lt;/p&gt;
+&lt;h3&gt;技术类&lt;/h3&gt;
+&lt;h4&gt;《JavaScript 高级程序设计》&lt;/h4&gt;
+&lt;p&gt;前端开发的经典之作，系统地介绍了 JavaScript 的核心概念。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;收获&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;深入理解了闭包、原型链等核心概念&lt;/li&gt;
+&lt;li&gt;学会了如何编写更优雅的代码&lt;/li&gt;
+&lt;li&gt;对 JavaScript 有了更全面的认识&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;推荐指数&lt;/strong&gt;：⭐⭐⭐⭐⭐&lt;/p&gt;
+&lt;h3&gt;思维认知类&lt;/h3&gt;
+&lt;h4&gt;《思考，快与慢》&lt;/h4&gt;
+&lt;p&gt;诺贝尔经济学奖得主丹尼尔·卡尼曼的经典著作，揭示了人类思维的两个系统。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;核心观点&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;系统1&lt;/strong&gt;：快速、直觉、自动化的思维&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;系统2&lt;/strong&gt;：缓慢、理性、需要努力的思维&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;启发&lt;/strong&gt;：
+了解自己的思维模式，在做重要决策时多启用系统2，避免认知偏差。&lt;/p&gt;
+&lt;h3&gt;个人成长类&lt;/h3&gt;
+&lt;h4&gt;《原则》&lt;/h4&gt;
+&lt;p&gt;桥水基金创始人雷·达里奥的人生智慧总结。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;印象深刻的原则&lt;/strong&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;拥抱现实，应对现实&lt;/strong&gt; - 不要逃避问题&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;痛苦+反思=进步&lt;/strong&gt; - 从失败中学习&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;开放心态&lt;/strong&gt; - 倾听不同意见&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;人文社科类&lt;/h3&gt;
+&lt;h4&gt;《人类简史》&lt;/h4&gt;
+&lt;p&gt;尤瓦尔·赫拉利的宏大历史叙事，从认知革命到科技革命。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;思考&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;人类是如何从普通动物发展到统治地球的？&lt;/li&gt;
+&lt;li&gt;虚构的故事如何塑造了人类社会？&lt;/li&gt;
+&lt;li&gt;科技发展会把人类带向何方？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;读书方法&lt;/h3&gt;
+&lt;p&gt;分享一些我的读书习惯：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;选择合适的书&lt;/strong&gt; - 根据当前需求和兴趣选择&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;做笔记&lt;/strong&gt; - 记录重要观点和感悟&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实践应用&lt;/strong&gt; - 把书中的知识应用到实际生活中&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定期回顾&lt;/strong&gt; - 重读笔记，巩固理解&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;读书收获&lt;/h3&gt;
+&lt;p&gt;通过持续阅读，我获得了：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;📖 &lt;strong&gt;知识积累&lt;/strong&gt; - 拓展了知识面&lt;/li&gt;
+&lt;li&gt;🧠 &lt;strong&gt;思维提升&lt;/strong&gt; - 学会了多角度思考问题&lt;/li&gt;
+&lt;li&gt;💡 &lt;strong&gt;灵感启发&lt;/strong&gt; - 获得了许多新想法&lt;/li&gt;
+&lt;li&gt;🌱 &lt;strong&gt;个人成长&lt;/strong&gt; - 对自我有了更深的认识&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2025 年下半年书单&lt;/h3&gt;
+&lt;p&gt;接下来计划阅读：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] 《深入理解 TypeScript》&lt;/li&gt;
+&lt;li&gt;[ ] 《乡土中国》&lt;/li&gt;
+&lt;li&gt;[ ] 《为什么我们总是在逃避》&lt;/li&gt;
+&lt;li&gt;[ ] 《设计心理学》&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;结语&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&quot;读书不是为了雄辩和驳斥，也不是为了轻信和盲从，而是为了思考和权衡。&quot; —— 培根&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;阅读是一场与智者的对话，是一段探索未知的旅程。希望我们都能在书中找到属于自己的答案。&lt;/p&gt;
+&lt;p&gt;你最近在读什么书呢？欢迎分享！📖✨&lt;/p&gt;
+</content:encoded></item><item><title>周末随笔 - 关于生活的一些思考</title><link>https://firefly.cuteleaf.cn/posts/weekend-thoughts/</link><guid isPermaLink="true">https://firefly.cuteleaf.cn/posts/weekend-thoughts/</guid><description>周末的一些随想，关于生活、工作和未来的思考。</description><pubDate>Thu, 06 Nov 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;🌅 周末的清晨&lt;/h2&gt;
+&lt;p&gt;周末的早晨总是特别安静，不用急着起床，可以慢慢享受这难得的悠闲时光。泡一杯咖啡，坐在窗边，看着窗外的景色，思绪不由得飘远。&lt;/p&gt;
+&lt;h3&gt;关于忙碌&lt;/h3&gt;
+&lt;p&gt;这段时间一直很忙，忙于工作、忙于学习、忙于各种琐事。有时候会想，我们为什么要这么忙呢？&lt;/p&gt;
+&lt;p&gt;渐渐明白，忙碌本身不是问题，关键是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;是否在做有意义的事&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;是否在朝着目标前进&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;是否还保持着生活的热情&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果答案是肯定的，那忙碌就是值得的。&lt;/p&gt;
+&lt;h3&gt;关于学习&lt;/h3&gt;
+&lt;p&gt;最近在学习新技术，发现学习是一个永无止境的过程。技术更新太快，总感觉跟不上节奏。&lt;/p&gt;
+&lt;p&gt;但换个角度想：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&quot;重要的不是学会所有技术，而是培养学习的能力。&quot;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;掌握了学习方法，面对新技术就不会那么焦虑了。&lt;/p&gt;
+&lt;h3&gt;关于平衡&lt;/h3&gt;
+&lt;p&gt;工作和生活的平衡是个永恒的话题。我的理解是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;工作时专注工作&lt;/strong&gt; - 提高效率，减少加班&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;休息时彻底放松&lt;/strong&gt; - 给大脑充电的时间&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;培养兴趣爱好&lt;/strong&gt; - 不让生活只剩下工作&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;保持运动习惯&lt;/strong&gt; - 健康是一切的基础&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;关于未来&lt;/h3&gt;
+&lt;p&gt;对于未来，我既期待又有些迷茫。期待的是无限可能，迷茫的是不确定性。&lt;/p&gt;
+&lt;p&gt;想清楚了一件事：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&quot;与其担心未来，不如做好当下的每一件事。&quot;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;未来是由无数个&quot;现在&quot;组成的，过好当下，未来自然不会太差。&lt;/p&gt;
+&lt;h3&gt;一些小确幸&lt;/h3&gt;
+&lt;p&gt;生活中的幸福，往往藏在细节里：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;☕ 早晨的一杯咖啡&lt;/li&gt;
+&lt;li&gt;🌅 窗外的阳光&lt;/li&gt;
+&lt;li&gt;📚 读完一本好书的满足感&lt;/li&gt;
+&lt;li&gt;💻 解决一个难题的成就感&lt;/li&gt;
+&lt;li&gt;💬 和朋友的一次愉快聊天&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;写在最后&lt;/h3&gt;
+&lt;p&gt;周末即将结束，新的一周又要开始了。&lt;/p&gt;
+&lt;p&gt;希望自己能够：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;保持学习的热情&lt;/li&gt;
+&lt;li&gt;享受工作的过程&lt;/li&gt;
+&lt;li&gt;珍惜生活的美好&lt;/li&gt;
+&lt;li&gt;不忘初心，继续前行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;共勉。🌟&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;em&gt;写于一个慵懒的周末午后&lt;/em&gt;&lt;/p&gt;
+</content:encoded></item><item><title>使用 Astro 搭建个人博客的完整指南</title><link>https://firefly.cuteleaf.cn/posts/astro-blog-setup/</link><guid isPermaLink="true">https://firefly.cuteleaf.cn/posts/astro-blog-setup/</guid><description>从零开始，用 Astro 框架搭建一个现代化的个人博客网站。</description><pubDate>Wed, 05 Nov 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;🚀 为什么选择 Astro？&lt;/h2&gt;
+&lt;p&gt;在众多的静态网站生成器中，我选择了 Astro，主要原因是：&lt;/p&gt;
+&lt;h3&gt;Astro 的优势&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;极快的性能&lt;/strong&gt; ⚡&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;默认零 JavaScript&lt;/li&gt;
+&lt;li&gt;按需加载组件&lt;/li&gt;
+&lt;li&gt;自动优化资源&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;灵活的框架支持&lt;/strong&gt; 🎯&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;支持 React、Vue、Svelte 等&lt;/li&gt;
+&lt;li&gt;可以混用不同框架&lt;/li&gt;
+&lt;li&gt;学习曲线平缓&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;内置功能丰富&lt;/strong&gt; 📦&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Markdown 和 MDX 支持&lt;/li&gt;
+&lt;li&gt;图片优化&lt;/li&gt;
+&lt;li&gt;RSS 生成&lt;/li&gt;
+&lt;li&gt;Sitemap 生成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;优秀的开发体验&lt;/strong&gt; 💻&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;快速的热更新&lt;/li&gt;
+&lt;li&gt;TypeScript 支持&lt;/li&gt;
+&lt;li&gt;组件化开发&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;📋 准备工作&lt;/h2&gt;
+&lt;h3&gt;环境要求&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# Node.js 版本
+node &amp;gt;= 18.0.0
+
+# 包管理器（推荐 pnpm）
+npm install -g pnpm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;🛠️ 创建项目&lt;/h2&gt;
+&lt;h3&gt;1. 初始化项目&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# 使用官方模板创建
+pnpm create astro@latest my-blog
+
+# 进入项目目录
+cd my-blog
+
+# 安装依赖
+pnpm install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;2. 项目结构&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;my-blog/
+├── public/          # 静态资源
+├── src/
+│   ├── components/  # 组件
+│   ├── layouts/     # 布局
+│   ├── pages/       # 页面
+│   ├── content/     # 内容集合
+│   └── styles/      # 样式
+├── astro.config.mjs # Astro 配置
+└── package.json
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;3. 配置 Tailwind CSS&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# 安装 Tailwind
+pnpm astro add tailwind
+
+# 配置会自动完成
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;4. 配置内容集合&lt;/h3&gt;
+&lt;p&gt;创建 &lt;code&gt;src/content/config.ts&lt;/code&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import { defineCollection, z } from &apos;astro:content&apos;;
+
+const postsCollection = defineCollection({
+  type: &apos;content&apos;,
+  schema: z.object({
+    title: z.string(),
+    published: z.date(),
+    description: z.string(),
+    tags: z.array(z.string()),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = {
+  posts: postsCollection,
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;📝 创建文章&lt;/h2&gt;
+&lt;p&gt;在 &lt;code&gt;src/content/posts/&lt;/code&gt; 目录下创建 Markdown 文件：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;---
+title: 我的第一篇文章
+published: 2025-11-05
+description: 这是我的第一篇博客文章
+tags: [博客, 教程]
+draft: false
+---
+
+## 内容开始
+
+这里是文章内容...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;🎨 创建页面&lt;/h2&gt;
+&lt;h3&gt;首页 &lt;code&gt;src/pages/index.astro&lt;/code&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;---
+import { getCollection } from &apos;astro:content&apos;;
+
+const posts = await getCollection(&apos;posts&apos;, ({ data }) =&amp;gt; {
+  return !data.draft;
+});
+---
+
+&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;我的博客&amp;lt;/title&amp;gt;
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;h1&amp;gt;文章列表&amp;lt;/h1&amp;gt;
+    {posts.map(post =&amp;gt; (
+      &amp;lt;article&amp;gt;
+        &amp;lt;a href={`/posts/${post.slug}`}&amp;gt;
+          &amp;lt;h2&amp;gt;{post.data.title}&amp;lt;/h2&amp;gt;
+        &amp;lt;/a&amp;gt;
+        &amp;lt;p&amp;gt;{post.data.description}&amp;lt;/p&amp;gt;
+      &amp;lt;/article&amp;gt;
+    ))}
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;文章页面 &lt;code&gt;src/pages/posts/[...slug].astro&lt;/code&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;---
+import { getCollection } from &apos;astro:content&apos;;
+
+export async function getStaticPaths() {
+  const posts = await getCollection(&apos;posts&apos;);
+  return posts.map(post =&amp;gt; ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+&amp;lt;article&amp;gt;
+  &amp;lt;h1&amp;gt;{post.data.title}&amp;lt;/h1&amp;gt;
+  &amp;lt;Content /&amp;gt;
+&amp;lt;/article&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;🚢 部署&lt;/h2&gt;
+&lt;h3&gt;Cloudflare Pages&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# 构建项目
+pnpm build
+
+# 部署到 Cloudflare Pages
+# 在控制台配置：
+# - 构建命令: pnpm build
+# - 输出目录: dist
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Vercel&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# 安装 Vercel CLI
+npm i -g vercel
+
+# 部署
+vercel
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;💡 优化建议&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;SEO 优化&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;添加 sitemap&lt;/li&gt;
+&lt;li&gt;配置 robots.txt&lt;/li&gt;
+&lt;li&gt;使用语义化 HTML&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;性能优化&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;图片压缩和懒加载&lt;/li&gt;
+&lt;li&gt;代码分割&lt;/li&gt;
+&lt;li&gt;CDN 加速&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;用户体验&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;响应式设计&lt;/li&gt;
+&lt;li&gt;深色模式&lt;/li&gt;
+&lt;li&gt;搜索功能&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;📚 学习资源&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.astro.build/&quot;&gt;Astro 官方文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://astro.build/themes/&quot;&gt;Astro 主题市场&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://astro.build/chat&quot;&gt;Astro Discord 社区&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🎉 总结&lt;/h2&gt;
+&lt;p&gt;使用 Astro 搭建博客的优势：&lt;/p&gt;
+&lt;p&gt;✅ 性能出色，加载速度快
+✅ 开发体验好，上手简单
+✅ 部署方便，支持多平台
+✅ 生态丰富，插件众多&lt;/p&gt;
+&lt;p&gt;现在就开始搭建你的博客吧！💪&lt;/p&gt;
+</content:encoded></item></channel></rss>

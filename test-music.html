@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐播放器测试</title>
+    <link rel="stylesheet" href="/assets/css/APlayer.min.css">
+    <link rel="stylesheet" href="/assets/css/APlayer.custom.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .log {
+            background: #f0f0f0;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .log-item {
+            margin: 5px 0;
+            padding: 5px;
+            border-left: 3px solid #4CAF50;
+            background: white;
+        }
+        .log-item.error {
+            border-left-color: #f44336;
+        }
+        .log-item.warning {
+            border-left-color: #ff9800;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🎵 音乐播放器诊断测试</h1>
+        <div id="log" class="log">
+            <div class="log-item">正在初始化...</div>
+        </div>
+        
+        <h2>播放器容器</h2>
+        <div id="aplayer-container">
+            <meting-js
+                server="netease"
+                type="playlist"
+                id="7452421335"
+                api="https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&r=:r"
+                fixed="true"
+                mini="true"
+                autoplay="false"
+                theme="#b7daff"
+                loop="all"
+                order="list"
+                preload="auto"
+                volume="0.7"
+                mutex="true"
+                lrc-type="3"
+                list-folded="false"
+                list-max-height="340px"
+                storage-name="aplayer-setting"
+            ></meting-js>
+        </div>
+    </div>
+
+    <script>
+        const logContainer = document.getElementById('log');
+        
+        function log(message, type = 'info') {
+            const item = document.createElement('div');
+            item.className = `log-item ${type}`;
+            item.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logContainer.appendChild(item);
+            logContainer.scrollTop = logContainer.scrollHeight;
+            console.log(message);
+        }
+
+        // 测试 1: 检查 APlayer CSS
+        log('✓ APlayer CSS 已加载');
+
+        // 测试 2: 加载 APlayer JS
+        log('正在加载 APlayer.js...');
+        const aplayerScript = document.createElement('script');
+        aplayerScript.src = '/assets/js/APlayer.min.js';
+        aplayerScript.onload = () => {
+            log('✓ APlayer.js 加载成功');
+            log(`✓ window.APlayer 存在: ${!!window.APlayer}`);
+            
+            // 测试 3: 加载 MetingJS
+            log('正在加载 Meting.js...');
+            const metingScript = document.createElement('script');
+            metingScript.src = 'https://unpkg.com/meting@2/dist/Meting.min.js';
+            metingScript.onload = () => {
+                log('✓ Meting.js 加载成功');
+                log(`✓ customElements.get('meting-js'): ${!!customElements.get('meting-js')}`);
+                
+                // 测试 4: 检查 meting-js 元素
+                setTimeout(() => {
+                    const metingElement = document.querySelector('meting-js');
+                    log(`✓ meting-js 元素存在: ${!!metingElement}`);
+                    
+                    if (metingElement) {
+                        log(`✓ meting-js.aplayer 存在: ${!!metingElement.aplayer}`);
+                        
+                        // 测试 5: 检查 APlayer 实例
+                        const checkInterval = setInterval(() => {
+                            if (metingElement.aplayer) {
+                                clearInterval(checkInterval);
+                                const aplayer = metingElement.aplayer;
+                                log(`✓ APlayer 实例已创建`);
+                                log(`✓ 音频列表长度: ${aplayer.list?.audios?.length || 0}`);
+                                
+                                if (aplayer.list?.audios?.length > 0) {
+                                    log('✅ 音乐播放器初始化成功！', 'info');
+                                    log(`第一首歌: ${aplayer.list.audios[0].name} - ${aplayer.list.audios[0].artist}`);
+                                } else {
+                                    log('❌ 音频列表为空，API 可能失败', 'error');
+                                }
+                            }
+                        }, 100);
+                        
+                        // 10秒后停止检查
+                        setTimeout(() => {
+                            clearInterval(checkInterval);
+                            if (!metingElement.aplayer) {
+                                log('❌ 10秒后仍未创建 APlayer 实例', 'error');
+                            }
+                        }, 10000);
+                    }
+                }, 1000);
+            };
+            metingScript.onerror = () => {
+                log('❌ Meting.js 加载失败', 'error');
+            };
+            document.head.appendChild(metingScript);
+        };
+        aplayerScript.onerror = () => {
+            log('❌ APlayer.js 加载失败', 'error');
+        };
+        document.head.appendChild(aplayerScript);
+
+        // 测试 6: 测试 API 可访问性
+        log('正在测试 API 可访问性...');
+        fetch('https://api.i-meto.com/meting/api?server=netease&type=playlist&id=7452421335&r=' + Math.random())
+            .then(response => {
+                log(`✓ API 响应状态: ${response.status}`);
+                return response.json();
+            })
+            .then(data => {
+                log(`✓ API 返回数据: ${data.length} 首歌曲`);
+            })
+            .catch(error => {
+                log(`❌ API 请求失败: ${error.message}`, 'error');
+            });
+    </script>
+</body>
+</html>
+
